@@ -1,0 +1,104 @@
+/* =========================================================
+   BRAND STORY SECTION
+========================================================= */
+
+.story-section {
+    padding: 70px 0 50px;
+}
+
+.story-box {
+    padding: 50px 60px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #fffaf0, #f5edd8);
+    border: 1px solid rgba(201, 151, 36, .2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .06);
+}
+
+.story-content span {
+    display: block;
+    color: var(--gold-dark);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.story-content h2 {
+    font-size: clamp(32px, 3.5vw, 46px);
+    font-weight: 500;
+    margin: 0 0 12px;
+}
+
+.story-content h2 span {
+    display: inline;
+    color: var(--gold);
+    letter-spacing: 0;
+}
+
+.story-content p {
+    max-width: 420px;
+    line-height: 1.8;
+    color: #5e4b37;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.luxury-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+    border-radius: 30px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.luxury-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(201, 151, 36, .35);
+    color: white;
+}
+
+.luxury-btn i {
+    font-size: 14px;
+}
+
+.story-image {
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid rgba(201, 151, 36, .2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+}
+
+@media (max-width: 991px) {
+    .story-section {
+        padding: 50px 0 30px;
+    }
+
+    .story-box {
+        padding: 30px 25px;
+    }
+
+    .story-content {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .story-box {
+        padding: 25px 18px;
+    }
+
+    .story-content p {
+        font-size: 13px;
+    }
+
+    .luxury-btn {
+        padding: 10px 22px;
+        font-size: 10px;
+    }
+}

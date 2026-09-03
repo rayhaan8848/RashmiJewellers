@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rashmi Jewellers | Discover the Art of Luxury{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     HERO CAROUSEL
+========================================================= -->
+<section class="hero-section">
+    <div class="hero-carousel">
+        <div class="row align-items-center">
+            <!-- HERO TEXT -->
+            <div class="col-lg-5">
+                <div class="hero-content">
+                    <span class="hero-small-title">RASHMI JEWELLERS</span>
+                    <h1>Discover the Art<br>of <span>Luxury</span></h1>
+                    <div class="hero-divider">◆</div>
+                    <p>Timeless designs crafted with purity, passion & perfection.</p>
+                    <a href="#collections" class="luxury-btn">EXPLORE COLLECTION <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- HERO IMAGE -->
+            <div class="col-lg-7">
+                <div class="hero-image-wrapper">
+                    <img src="{% static 'images/hero-necklace.jpg' %}" alt="Luxury Gold Necklace" class="hero-image"
+                        onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                    <!-- PRODUCT INFO -->
+                    <div class="hero-product-card">
+                        <small>TRADITIONAL GOLD NECKLACE</small>
+                        <h5>22K Gold</h5>
+                        <p>Starting from</p>
+                        <strong>NPR 189,900</strong>
+                        <a href="#">VIEW PRODUCT <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ARROWS -->
+        <button class="hero-arrow hero-prev"><i class="bi bi-chevron-left"></i></button>
+        <button class="hero-arrow hero-next"><i class="bi bi-chevron-right"></i></button>
+        <!-- INDICATORS -->
+        <div class="hero-indicators">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     TRUST FEATURES
+========================================================= -->
+<section class="trust-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="trust-item">
+                    <i class="bi bi-shield-check"></i>
+                    <div>
+                        <strong>100% HALLMARK</strong>
+                        <small>Certified Pure Jewellery</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="trust-item">
+                    <i class="bi bi-gem"></i>
+                    <div>
+                        <strong>EXCLUSIVE DESIGNS</strong>
+                        <small>Crafted to Perfection</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="trust-item">
+                    <i class="bi bi-award"></i>
+                    <div>
+                        <strong>TRUST & PURITY</strong>
+                        <small>Legacy You Can Trust</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="trust-item">
+                    <i class="bi bi-headset"></i>
+                    <div>
+                        <strong>CUSTOMER SUPPORT</strong>
+                        <small>We're Here to Help</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     COLLECTIONS
+========================================================= -->
+<section class="collections-section" id="collections">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <span>EXPLORE</span>
+                <h2>Our Collections</h2>
+                <div class="gold-line">◆</div>
+            </div>
+            <a href="#" class="outline-btn">VIEW ALL COLLECTIONS <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-4">
+            <!-- NECKLACES -->
+            <div class="col-lg-3 col-md-6">
+                <div class="collection-card">
+                    <img src="{% static 'images/necklace.jpg' %}" alt="Gold Necklaces"
+                        onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                    <div class="collection-overlay">
+                        <h3>Necklaces</h3>
+                        <a href="#">View Collection <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- BANGLES -->
+            <div class="col-lg-3 col-md-6">
+                <div class="collection-card">
+                    <img src="{% static 'images/bangles.jpg' %}" alt="Gold Bangles"
+                        onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                    <div class="collection-overlay">
+                        <h3>Bangles</h3>
+                        <a href="#">View Collection <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- RINGS -->
+            <div class="col-lg-3 col-md-6">
+                <div class="collection-card">
+                    <img src="{% static 'images/rings.jpg' %}" alt="Gold Rings"
+                        onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                    <div class="collection-overlay">
+                        <h3>Rings</h3>
+                        <a href="#">View Collection <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- EARRINGS -->
+            <div class="col-lg-3 col-md-6">
+                <div class="collection-card">
+                    <img src="{% static 'images/earrings.jpg' %}" alt="Gold Earrings"
+                        onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                    <div class="collection-overlay">
+                        <h3>Earrings</h3>
+                        <a href="#">View Collection <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     FEATURED PRODUCTS
+========================================================= -->
+<section class="products-section">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <span>HANDPICKED FOR YOU</span>
+                <h2>Featured Jewellery</h2>
+                <div class="gold-line">◆</div>
+            </div>
+            <a href="#" class="outline-btn">VIEW ALL PRODUCTS <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-4">
+            <!-- PRODUCT 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/necklace.jpg' %}" alt="Royal Heritage Necklace"
+                            onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <small>22K GOLD</small>
+                        <h4>Royal Heritage Necklace</h4>
+                        <strong>NPR 196,900</strong>
+                        <button class="cart-btn">ADD TO CART <i class="bi bi-bag"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- PRODUCT 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/bangles.jpg' %}" alt="Elegant Gold Bangles"
+                            onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <small>22K GOLD</small>
+                        <h4>Elegant Gold Bangles</h4>
+                        <strong>NPR 128,900</strong>
+                        <button class="cart-btn">ADD TO CART <i class="bi bi-bag"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- PRODUCT 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/rings.jpg' %}" alt="Diamond Solitaire Ring"
+                            onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <small>18K GOLD</small>
+                        <h4>Diamond Solitaire Ring</h4>
+                        <strong>NPR 72,900</strong>
+                        <button class="cart-btn">ADD TO CART <i class="bi bi-bag"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- PRODUCT 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'images/earrings.jpg' %}" alt="Traditional Earrings"
+                            onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <small>22K GOLD</small>
+                        <h4>Traditional Jhumka Earrings</h4>
+                        <strong>NPR 58,900</strong>
+                        <button class="cart-btn">ADD TO CART <i class="bi bi-bag"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     BRAND STORY
+========================================================= -->
+<section class="story-section">
+    <div class="container">
+        <div class="story-box">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="story-content">
+                        <span>OUR HERITAGE</span>
+                        <h2>A Legacy of <span>Elegance</span></h2>
+                        <p>Inspired by the timeless beauty of Nepal, every piece from Rashmi Jewellers represents
+                            purity, heritage and unmatched craftsmanship.</p>
+                        <a href="#" class="luxury-btn">DISCOVER OUR STORY <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <img src="{% static 'images/nepal-jewellery.jpg' %}" class="story-image" alt="Nepal Heritage"
+                        onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+<section class="reviews-section" id="reviews">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <span>CUSTOMER LOVE</span>
+                <h2>What Our Customers Say</h2>
+                <div class="gold-line">◆</div>
+            </div>
+            <a href="#" class="outline-btn">VIEW ALL REVIEWS <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Stunning designs and excellent service. Very satisfied with my purchase!"</p>
+                    <strong>— Anusha Thapa</strong>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The jewellery quality is amazing. Pure gold and beautiful finishing."</p>
+                    <strong>— Suman KC</strong>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"My go-to jewellery store now. Highly recommended!"</p>
+                    <strong>— Priya Maharjan</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Section Styles (inline since missing CSS file) -->
+<style>
+    .trust-section {
+        padding: 40px 0 35px;
+        background: rgba(255, 250, 240, .5);
+    }
+
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 10px;
+    }
+
+    .trust-item i {
+        font-size: 28px;
+        color: var(--gold);
+    }
+
+    .trust-item strong {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: var(--brown);
+    }
+
+    .trust-item small {
+        font-size: 10px;
+        color: var(--brown-light);
+    }
+
+    @media (max-width: 767px) {
+        .trust-item {
+            justify-content: center;
+            padding: 10px;
+        }
+    }
+</style>
+
+{% endblock %}

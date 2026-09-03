@@ -1,0 +1,112 @@
+/* =========================================================
+   NAVBAR EXTRA STYLES
+   (Additional navbar styles not covered in base.css)
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    letter-spacing: 2px;
+}
+
+.brand-subtitle {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--brown-light);
+}
+
+.account-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile menu refinements */
+.mobile-link {
+    text-decoration: none;
+}
+
+/* Responsive fixes for navbar brand */
+@media (max-width: 991px) {
+    .brand-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .brand-subtitle {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .brand-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+    .brand-subtitle {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+}
+
+.reviews-section {
+    padding: 70px 0;
+    background: #f7edda;
+}
+
+.review-card {
+    height: 100%;
+    padding: 28px;
+    background: #fffdf9;
+    border: 1px solid rgba(57, 39, 23, .1);
+    box-shadow: 0 8px 24px rgba(57, 39, 23, .06);
+}
+
+.stars {
+    margin-bottom: 14px;
+    color: var(--gold);
+    letter-spacing: 3px;
+}
+
+.review-card p {
+    color: var(--brown-light);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.review-card strong {
+    color: var(--brown);
+    font-size: 12px;
+}
