@@ -170,3 +170,13 @@
     }
 
 }
+
+.site-footer {
+    background: #050505;
+    border-top: 1px solid rgba(212, 175, 98, .18);
+}
+
+.footer-top-line {
+    height: 1px;
+    margin-bottom: 52px;
+}

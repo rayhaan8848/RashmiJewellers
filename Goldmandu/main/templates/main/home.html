@@ -8,47 +8,162 @@
 <!-- =========================================================
      HERO CAROUSEL
 ========================================================= -->
-<section class="hero-section">
+
+<section class="hero-section" id="hero">
+
+    <div class="hero-background-glow"></div>
+    <div class="hero-background-glow glow-two"></div>
+
     <div class="hero-carousel">
-        <div class="row align-items-center">
-            <!-- HERO TEXT -->
-            <div class="col-lg-5">
+
+        {% for i in offer %}
+
+        <!-- =========================
+             SLIDE 1
+        ========================== -->
+        <div class="hero-slide {% if forloop.first %}
+          active
+        {% endif %} ">
+
+            <div class="hero-container">
+
+                <!-- TEXT -->
                 <div class="hero-content">
-                    <span class="hero-small-title">RASHMI JEWELLERS</span>
-                    <h1>Discover the Art<br>of <span>Luxury</span></h1>
-                    <div class="hero-divider">◆</div>
-                    <p>Timeless designs crafted with purity, passion & perfection.</p>
-                    <a href="#collections" class="luxury-btn">EXPLORE COLLECTION <i class="bi bi-arrow-right"></i></a>
-                </div>
-            </div>
-            <!-- HERO IMAGE -->
-            <div class="col-lg-7">
-                <div class="hero-image-wrapper">
-                    <img src="{% static 'images/hero-necklace.jpg' %}" alt="Luxury Gold Necklace" class="hero-image"
-                        onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
-                    <!-- PRODUCT INFO -->
-                    <div class="hero-product-card">
-                        <small>TRADITIONAL GOLD NECKLACE</small>
-                        <h5>22K Gold</h5>
-                        <p>Starting from</p>
-                        <strong>NPR 189,900</strong>
-                        <a href="#">VIEW PRODUCT <i class="bi bi-arrow-right"></i></a>
+
+                    <span class="hero-small-title">
+                        RASHMI JEWELLERS
+                    </span>
+
+                    <div class="hero-line"></div>
+
+                    <h1>
+                        Discover the Art
+                        <br>
+                        of <span>Luxury</span>
+                    </h1>
+
+                    <div class="hero-divider">
+                        <span></span>
+                        ◆
+                        <span></span>
                     </div>
+
+                    <p>
+                        Timeless designs crafted with purity,
+                        passion & perfection.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#collections" class="luxury-btn">
+                            <span>EXPLORE COLLECTION</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                        <a href="#about" class="secondary-btn">
+                            DISCOVER MORE
+                        </a>
+
+                    </div>
+
                 </div>
+
+
+                <!-- IMAGE -->
+                <div class="hero-visual">
+
+                    <div class="image-glow"></div>
+
+                    <div class="hero-image-wrapper">
+
+                        <img src="{{i.image.url}}" alt="Luxury Gold Necklace" class="hero-image"
+                            onerror="this.onerror=null;this.src='{{i.image.url}}';">
+
+                    </div>
+
+                    <!-- PRODUCT CARD -->
+                    <div class="hero-product-card">
+
+                        <span class="product-label">
+                            TRADITIONAL COLLECTION
+                        </span>
+
+                        <h3>
+                            {{i.name}}
+                        </h3>
+
+                        <div class="product-line"></div>
+
+                        <span class="product-start">
+                            STARTING FROM
+                        </span>
+
+                        <strong>
+                            {{i.price}}
+                        </strong>
+
+                        <a href="#">
+                            VIEW PRODUCT
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
-        <!-- ARROWS -->
-        <button class="hero-arrow hero-prev"><i class="bi bi-chevron-left"></i></button>
-        <button class="hero-arrow hero-next"><i class="bi bi-chevron-right"></i></button>
-        <!-- INDICATORS -->
+
+
+
+        {% endfor %}
+
+        <!-- =========================
+             NAVIGATION ARROWS
+        ========================== -->
+
+        <button class="hero-arrow hero-prev" type="button" aria-label="Previous slide">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <button class="hero-arrow hero-next" type="button" aria-label="Next slide">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+
+
+        <!-- =========================
+             INDICATORS
+        ========================== -->
+
         <div class="hero-indicators">
-            <span class="active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
+
+            {% for i in offer %}
+            <button class="hero-indicator{% if forloop.first %} active{% endif %}" data-slide="{{ forloop.counter0 }}"
+                aria-label="Go to slide {{ forloop.counter }}"></button>
+            {% endfor %}
+
         </div>
+
+
+        <!-- SLIDE NUMBER -->
+        <div class="hero-counter">
+
+            <span class="counter-current">01</span>
+
+            <span class="counter-line"></span>
+
+            <span class="counter-total">{{ offer|length|stringformat:"02d" }}</span>
+
+        </div>
+
     </div>
+
+
 </section>
+
+
+
 
 <!-- =========================================================
      TRUST FEATURES
@@ -113,7 +228,7 @@
             <!-- NECKLACES -->
             <div class="col-lg-3 col-md-6">
                 <div class="collection-card">
-                    <img src="{% static 'images/necklace.jpg' %}" alt="Gold Necklaces"
+                    <img src="{% static 'images/Neckless.jpg' %}" alt="Gold Necklaces"
                         onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                     <div class="collection-overlay">
                         <h3>Necklaces</h3>
@@ -124,7 +239,7 @@
             <!-- BANGLES -->
             <div class="col-lg-3 col-md-6">
                 <div class="collection-card">
-                    <img src="{% static 'images/bangles.jpg' %}" alt="Gold Bangles"
+                    <img src="{% static 'images/earings.jpg' %}" alt="Gold Bangles"
                         onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                     <div class="collection-overlay">
                         <h3>Bangles</h3>
@@ -135,7 +250,7 @@
             <!-- RINGS -->
             <div class="col-lg-3 col-md-6">
                 <div class="collection-card">
-                    <img src="{% static 'images/rings.jpg' %}" alt="Gold Rings"
+                    <img src="{% static 'images/Ring_1.jpg' %}" alt="Gold Rings"
                         onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                     <div class="collection-overlay">
                         <h3>Rings</h3>
@@ -146,7 +261,7 @@
             <!-- EARRINGS -->
             <div class="col-lg-3 col-md-6">
                 <div class="collection-card">
-                    <img src="{% static 'images/earrings.jpg' %}" alt="Gold Earrings"
+                    <img src="{% static 'images/Diamond3.jpg' %}" alt="Gold Earrings"
                         onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                     <div class="collection-overlay">
                         <h3>Earrings</h3>
@@ -176,7 +291,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{% static 'images/necklace.jpg' %}" alt="Royal Heritage Necklace"
+                        <img src="{% static 'images/Neckless.jpg' %}" alt="Royal Heritage Necklace"
                             onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                         <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
                     </div>
@@ -192,7 +307,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{% static 'images/bangles.jpg' %}" alt="Elegant Gold Bangles"
+                        <img src="{% static 'images/earings.jpg' %}" alt="Elegant Gold Bangles"
                             onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                         <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
                     </div>
@@ -208,7 +323,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{% static 'images/rings.jpg' %}" alt="Diamond Solitaire Ring"
+                        <img src="{% static 'images/Ring_1.jpg' %}" alt="Diamond Solitaire Ring"
                             onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                         <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
                     </div>
@@ -224,7 +339,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{% static 'images/earrings.jpg' %}" alt="Traditional Earrings"
+                        <img src="{% static 'images/Diamond3.jpg' %}" alt="Traditional Earrings"
                             onerror="this.onerror=null;this.src='/static/images/rj_logo.png';">
                         <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
                     </div>
@@ -243,7 +358,7 @@
 <!-- =========================================================
      BRAND STORY
 ========================================================= -->
-<section class="story-section">
+<section class="story-section" id="about">
     <div class="container">
         <div class="story-box">
             <div class="row align-items-center">
@@ -343,5 +458,9 @@
         }
     }
 </style>
+
+{% block extra_js %}
+<script src="{% static 'js/herojs' %}"></script>
+{% endblock %}
 
 {% endblock %}

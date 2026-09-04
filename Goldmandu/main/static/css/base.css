@@ -27,6 +27,39 @@ a {
     overflow: hidden;
 }
 
+:root {
+    --gold: #d4af62;
+    --gold-light: #ead39a;
+    --gold-dark: #8e6d32;
+    --gold-bright: #f5e4b2;
+    --brown: #f5f1e8;
+    --brown-light: #b7afa2;
+    --red: #b91c1c;
+    --transition: .45s cubic-bezier(.22, .61, .36, 1);
+}
+
+body {
+    background: #080808;
+    color: var(--brown);
+    overflow-x: clip;
+}
+
+.main-content {
+    background: #080808;
+}
+
+.section-heading>div h2,
+.story-content h2,
+.product-info h4,
+.collection-overlay h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.section-heading>div h2,
+.story-content h2 {
+    color: var(--brown);
+}
+
 /* =========================================================
     HERO SECTION
 ========================================================= */
@@ -275,4 +308,32 @@ a {
     .hero-arrow i {
         font-size: 14px;
     }
+}
+
+.luxury-btn {
+    background: linear-gradient(135deg, #dc2626, #991b1b) !important;
+    color: #fff !important;
+    border: 1px solid #ff4d4d;
+    box-shadow:
+        0 8px 25px rgba(220, 38, 38, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.luxury-btn:hover {
+    background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
+    color: #fff !important;
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 35px rgba(220, 38, 38, 0.55),
+        0 0 20px rgba(255, 50, 50, 0.25);
+}
+
+.luxury-btn i {
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.luxury-btn:hover i {
+    transform: translateX(5px);
 }

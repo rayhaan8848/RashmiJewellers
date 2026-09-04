@@ -100,3 +100,37 @@
         height: 220px;
     }
 }
+
+.products-section {
+    padding: 100px 0;
+    background: #080808;
+}
+
+.product-card {
+    border-color: rgba(212, 175, 98, .18);
+    background: #111111;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, .24);
+}
+
+.product-image {
+    background: #171717;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.045);
+}
+
+.wishlist-btn {
+    background: rgba(8, 8, 8, .78);
+    color: var(--gold-light);
+}
+
+.product-info h4,
+.product-info strong {
+    color: var(--brown);
+}
+
+.cart-btn {
+    border-color: rgba(212, 175, 98, .5);
+    color: var(--gold-light);
+}

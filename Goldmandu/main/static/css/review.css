@@ -110,3 +110,19 @@
     color: var(--brown);
     font-size: 12px;
 }
+
+.reviews-section {
+    padding: 100px 0;
+    background: #080808;
+}
+
+.review-card {
+    padding: 32px;
+    background: #111111;
+    border-color: rgba(212, 175, 98, .18);
+    box-shadow: none;
+}
+
+.review-card p {
+    color: #b7afa2;
+}

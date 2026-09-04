@@ -216,6 +216,54 @@
     margin-left: auto;
 }
 
+.site-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 190px;
+    margin-left: auto;
+}
+
+.site-search input {
+    width: 100%;
+    height: 36px;
+    padding: 0 38px 0 13px;
+    border: 1px solid rgba(212, 175, 98, .35);
+    border-radius: 2px;
+    outline: 0;
+    background: rgba(255, 255, 255, .045);
+    color: var(--nav-cream);
+    font: 500 10px 'Montserrat', sans-serif;
+    letter-spacing: .4px;
+    transition: border-color .3s ease, background .3s ease, box-shadow .3s ease;
+}
+
+.site-search input::placeholder {
+    color: var(--nav-muted);
+}
+
+.site-search input:focus {
+    border-color: var(--nav-gold-light);
+    background: rgba(255, 255, 255, .08);
+    box-shadow: 0 0 0 3px rgba(212, 175, 98, .1);
+}
+
+.site-search button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--nav-gold-light);
+    cursor: pointer;
+}
+
 .nav-link {
     position: relative;
     padding: 31px 0 29px;
@@ -456,6 +504,10 @@
         display: none;
     }
 
+    .site-search {
+        display: none;
+    }
+
     .navbar-actions {
         gap: 7px;
     }
@@ -509,6 +561,12 @@
         background: rgba(7, 7, 7, .78);
     }
 
+    .mobile-search.site-search {
+        display: flex;
+        width: 100%;
+        margin: 0 0 10px;
+    }
+
     .mobile-menu.show {
         display: block;
         animation: mobile-menu-in .4s var(--nav-ease) both;
@@ -554,6 +612,32 @@
     .action-button {
         width: 34px;
         height: 34px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-actions {
+        gap: 4px;
+    }
+
+    .action-button,
+    .mobile-toggle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .brand-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+    .brand-subtitle {
+        font-size: 7px;
+        letter-spacing: 2px;
     }
 }
 

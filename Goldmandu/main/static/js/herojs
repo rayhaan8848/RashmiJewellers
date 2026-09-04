@@ -1,0 +1,450 @@
+
+/* =========================================================
+   RASHMI JEWELLERS
+   PREMIUM HERO CAROUSEL
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const carousel = document.querySelector(".hero-carousel");
+
+    if (!carousel) {
+        return;
+    }
+
+    const slides = carousel.querySelectorAll(".hero-slide");
+
+    const indicators =
+        carousel.querySelectorAll(".hero-indicator");
+
+    const nextButton =
+        carousel.querySelector(".hero-next");
+
+    const prevButton =
+        carousel.querySelector(".hero-prev");
+
+    const currentCounter =
+        carousel.querySelector(".counter-current");
+
+
+    /* =====================================================
+       SETTINGS
+    ===================================================== */
+
+    let currentSlide = 0;
+
+    let autoPlay;
+
+    const slideDuration = 5000;
+
+    let isAnimating = false;
+
+
+    /* =====================================================
+       SHOW SLIDE
+    ===================================================== */
+
+    function showSlide(index, direction = "next") {
+
+        if (isAnimating) {
+            return;
+        }
+
+        isAnimating = true;
+
+
+        /* -----------------------------------------------
+           HANDLE INDEX
+        ------------------------------------------------ */
+
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+
+        /* -----------------------------------------------
+           CURRENT SLIDE
+        ------------------------------------------------ */
+
+        slides.forEach((slide) => {
+            slide.classList.remove("active");
+        });
+
+
+        /* -----------------------------------------------
+           INDICATORS
+        ------------------------------------------------ */
+
+        indicators.forEach((indicator) => {
+            indicator.classList.remove("active");
+        });
+
+
+        /* -----------------------------------------------
+           ACTIVE SLIDE
+        ------------------------------------------------ */
+
+        slides[index].classList.add("active");
+
+
+        if (indicators[index]) {
+            indicators[index].classList.add("active");
+        }
+
+
+        /* -----------------------------------------------
+           COUNTER
+        ------------------------------------------------ */
+
+        if (currentCounter) {
+
+            currentCounter.textContent =
+                String(index + 1).padStart(2, "0");
+
+        }
+
+
+        /* -----------------------------------------------
+           UPDATE CURRENT
+        ------------------------------------------------ */
+
+        currentSlide = index;
+
+
+        /* -----------------------------------------------
+           PREVENT DOUBLE CLICK
+        ------------------------------------------------ */
+
+        setTimeout(() => {
+
+            isAnimating = false;
+
+        }, 800);
+
+    }
+
+
+    /* =====================================================
+       NEXT SLIDE
+    ===================================================== */
+
+    function nextSlide() {
+
+        showSlide(
+            currentSlide + 1,
+            "next"
+        );
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS SLIDE
+    ===================================================== */
+
+    function previousSlide() {
+
+        showSlide(
+            currentSlide - 1,
+            "previous"
+        );
+
+    }
+
+
+    /* =====================================================
+       NEXT BUTTON
+    ===================================================== */
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                nextSlide();
+
+                restartAutoPlay();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS BUTTON
+    ===================================================== */
+
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            function () {
+
+                previousSlide();
+
+                restartAutoPlay();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       INDICATORS
+    ===================================================== */
+
+    indicators.forEach(
+        (indicator, index) => {
+
+            indicator.addEventListener(
+                "click",
+                function () {
+
+                    if (index === currentSlide) {
+                        return;
+                    }
+
+                    showSlide(
+                        index,
+                        index > currentSlide
+                            ? "next"
+                            : "previous"
+                    );
+
+                    restartAutoPlay();
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       AUTOPLAY
+    ===================================================== */
+
+    function startAutoPlay() {
+
+        stopAutoPlay();
+
+        autoPlay = setInterval(
+            function () {
+
+                nextSlide();
+
+            },
+            slideDuration
+        );
+
+    }
+
+
+    /* =====================================================
+       STOP AUTOPLAY
+    ===================================================== */
+
+    function stopAutoPlay() {
+
+        if (autoPlay) {
+
+            clearInterval(autoPlay);
+
+            autoPlay = null;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       RESTART AUTOPLAY
+    ===================================================== */
+
+    function restartAutoPlay() {
+
+        stopAutoPlay();
+
+        startAutoPlay();
+
+    }
+
+
+    /* =====================================================
+       PAUSE WHEN MOUSE IS OVER CAROUSEL
+    ===================================================== */
+
+    carousel.addEventListener(
+        "mouseenter",
+        function () {
+
+            stopAutoPlay();
+
+        }
+    );
+
+
+    /* =====================================================
+       RESUME WHEN MOUSE LEAVES
+    ===================================================== */
+
+    carousel.addEventListener(
+        "mouseleave",
+        function () {
+
+            startAutoPlay();
+
+        }
+    );
+
+
+    /* =====================================================
+       KEYBOARD NAVIGATION
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "ArrowRight") {
+
+                nextSlide();
+
+                restartAutoPlay();
+
+            }
+
+
+            if (event.key === "ArrowLeft") {
+
+                previousSlide();
+
+                restartAutoPlay();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       TOUCH / SWIPE SUPPORT
+    ===================================================== */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    carousel.addEventListener(
+        "touchstart",
+        function (event) {
+
+            touchStartX =
+                event.changedTouches[0].screenX;
+
+            stopAutoPlay();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    carousel.addEventListener(
+        "touchend",
+        function (event) {
+
+            touchEndX =
+                event.changedTouches[0].screenX;
+
+            handleSwipe();
+
+            startAutoPlay();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    function handleSwipe() {
+
+        const swipeDistance =
+            touchEndX - touchStartX;
+
+
+        /* Swipe left */
+
+        if (swipeDistance < -50) {
+
+            nextSlide();
+
+        }
+
+
+        /* Swipe right */
+
+        if (swipeDistance > 50) {
+
+            previousSlide();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       VISIBILITY API
+       Stop autoplay when browser tab is hidden
+    ===================================================== */
+
+    document.addEventListener(
+        "visibilitychange",
+        function () {
+
+            if (document.hidden) {
+
+                stopAutoPlay();
+
+            } else {
+
+                startAutoPlay();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
+
+    showSlide(0);
+
+    startAutoPlay();
+
+
+    /* =====================================================
+       LOG
+    ===================================================== */
+
+    console.log(
+        "Rashmi Jewellers Hero Carousel initialized."
+    );
+
+});
